@@ -263,7 +263,7 @@ export default function StudentPortal({
             rel="noopener noreferrer"
           >
             <img 
-              src="/img/iaskai.png" // 路径已正确，保持不变
+              src="/img/iask.ai.png" // 路径已正确，保持不变
               alt="iask.ai"
             />
             <p>iask.ai (教育版)</p>
