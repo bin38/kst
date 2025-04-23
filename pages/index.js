@@ -131,9 +131,9 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
           width: 100px;
           height: 100px;
           object-fit: contain;
-          background: rgba(255, 255, 255, 0.9);
+          /* 移除白色背景 */
           border-radius: 50%;
-          padding: 5px;
+          padding: 3px;
           margin-bottom: 15px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
