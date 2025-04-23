@@ -82,8 +82,8 @@ export default function AliasesPage({ aliases, studentEmail, emailDomain }) {
     if (!suffix) {
       return alert('Please enter the alias suffix.')
     }
-    // 前端前缀已固化为 chatgpt_
-    const fullAlias = `chatgpt_${suffix}@${emailDomain}`
+    // 前端前缀固化
+    const fullAlias = `kst_${suffix}@${emailDomain}`
     const res = await fetch('/api/aliases/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -133,7 +133,7 @@ export default function AliasesPage({ aliases, studentEmail, emailDomain }) {
         </div>
 
         <form className="add-form" onSubmit={handleAdd}>
-          <span>chatgpt_</span>
+          <span>kst_</span>
           <input
             value={suffix}
             onChange={e => setSuffix(e.target.value.trim())}
