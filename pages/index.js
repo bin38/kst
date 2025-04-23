@@ -133,7 +133,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
           object-fit: contain;
           background: rgba(255, 255, 255, 0.9);
           border-radius: 50%;
-          padding: 10px;
+          padding: 5px;
           margin-bottom: 15px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
