@@ -79,10 +79,9 @@ export default function StudentPortal({
   const gmailLink =
     `https://accounts.google.com/ServiceLogin?Email=${encodeURIComponent(studentEmail)}` +
     `&continue=https://mail.google.com/mail`
-  const canvaLink = 'https://www.canva.com/?disable-cn-redirect=true' // 更新为禁止重定向的链接
+  const driveLink = 'https://drive.google.com' // 添加 Drive 链接
+  const canvaLink = 'https://www.canva.com/?disable-cn-redirect=true' 
   const adobeLink = `https://new.express.adobe.com/`
-  
-  // 福利链接
   const notionLink = 'https://www.notion.so/'
   const figmaLink = 'https://www.figma.com/education'
   const beautifulaiLink = 'https://www.beautiful.ai/education'
@@ -145,75 +144,11 @@ export default function StudentPortal({
           <p><strong>Student ID:</strong> {sid}</p>
         </div>
 
-        {/* 福利信息区域 */}
-        <div className="benefits-section">
-          <h2 className="section-title">您的教育福利</h2>
-          <div className="benefit-card">
-            <h3>1. Google Workspace for Education</h3>
-            <ul>
-              <li><strong>Google邮箱：</strong>获得一个Google邮箱账号（7天内设置任意二次验证）</li>
-              <li><strong>云存储空间：</strong>每个账号分配了200G的Google Drive云存储空间（不要存储重要信息）</li>
-            </ul>
-            <div className="benefit-actions">
-              <a href={gmailLink} target="_blank" rel="noopener noreferrer" className="benefit-btn">访问Gmail</a>
-              <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" className="benefit-btn">访问Google Drive</a>
-            </div>
-          </div>
-
-          <div className="benefit-card">
-            <h3>2. Adobe Express Premium (教育版)</h3>
-            <p>首次登录时直接在输入框输入注册的edu谷歌账号会自动加入学校，后续登录可以直接点击谷歌进行登录</p>
-            <div className="benefit-actions">
-              <a href={adobeLink} target="_blank" rel="noopener noreferrer" className="benefit-btn">访问Adobe Express</a>
-            </div>
-          </div>
-
-          <div className="benefit-card">
-            <h3>3. Notion 教育会员</h3>
-            <p>直接使用谷歌账号进行注册即可在升级方案中获得教育plus升级</p>
-            <div className="benefit-actions">
-              <a href={notionLink} target="_blank" rel="noopener noreferrer" className="benefit-btn">访问Notion</a>
-            </div>
-          </div>
-
-          <div className="benefit-card">
-            <h3>4. Canva 可画国际版 (Canva for Education)</h3>
-            <p>直接使用注册的谷歌邮箱进行登录即可</p>
-            <div className="benefit-actions">
-              <a href={canvaLink} target="_blank" rel="noopener noreferrer" className="benefit-btn">访问Canva国际版</a>
-            </div>
-          </div>
-
-          <div className="benefit-card">
-            <h3>5. Figma 教育会员</h3>
-            <p>使用谷歌教育邮箱注册即可获得教育权益</p>
-            <div className="benefit-actions">
-              <a href={figmaLink} target="_blank" rel="noopener noreferrer" className="benefit-btn">访问Figma</a>
-            </div>
-          </div>
-
-          <div className="benefit-card">
-            <h3>6. Beautiful.ai 教育会员</h3>
-            <p>使用谷歌教育邮箱注册即可获得教育权益</p>
-            <div className="benefit-actions">
-              <a href={beautifulaiLink} target="_blank" rel="noopener noreferrer" className="benefit-btn">访问Beautiful.ai</a>
-            </div>
-          </div>
-
-          <div className="benefit-card">
-            <h3>7. iask.ai 教育会员</h3>
-            <p>使用谷歌教育邮箱注册即可获得教育权益</p>
-            <div className="benefit-actions">
-              <a href={iaskaiLink} target="_blank" rel="noopener noreferrer" className="benefit-btn">访问iask.ai</a>
-            </div>
-          </div>
-        </div>
-
         {/* 常用应用 */}
-        <h2 className="section-title">常用应用</h2>
+        <h2 className="section-title">常用应用与福利</h2> 
         {/* Tiles */}
         <div className="grid">
-          {/* Student Email opens in new tab */}
+          {/* Student Email */}
           <a
             href={gmailLink}
             className="grid-item"
@@ -224,16 +159,30 @@ export default function StudentPortal({
               src="https://www.gstatic.com/images/branding/product/1x/gmail_48dp.png"
               alt="Student Email"
             />
-            <p>学生邮箱</p>
+            <p>学生邮箱 (Gmail)</p>
           </a>
 
-          {/* e‑Student Card stays in same tab */}
+          {/* Google Drive */}
+          <a
+            href={driveLink}
+            className="grid-item"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/1024px-Google_Drive_icon_%282020%29.svg.png" 
+              alt="Google Drive"
+            />
+            <p>云存储 (Drive)</p>
+          </a>
+
+          {/* e‑Student Card */}
           <a href="/student-card" className="grid-item">
             <div className="card-icon">🎓</div>
             <p>电子学生证</p>
           </a>
 
-          {/* Adobe Express opens in new tab */}
+          {/* Adobe Express */}
           <a
             href={adobeLink}
             className="grid-item"
@@ -244,7 +193,7 @@ export default function StudentPortal({
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Adobe_Express_logo_RGB_1024px.png/500px-Adobe_Express_logo_RGB_1024px.png"
               alt="Adobe Express"
             />
-            <p>Adobe Express</p>
+            <p>Adobe Express (教育版)</p>
           </a>
 
           {/* Notion */}
@@ -258,10 +207,10 @@ export default function StudentPortal({
               src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png"
               alt="Notion"
             />
-            <p>Notion</p>
+            <p>Notion (教育版)</p>
           </a>
 
-          {/* Canva opens in new tab */}
+          {/* Canva */}
           <a
             href={canvaLink}
             className="grid-item"
@@ -272,7 +221,7 @@ export default function StudentPortal({
               src="https://static.canva.com/web/images/8439b51bb7a19f6e65ce1064bc37c197.svg"
               alt="Canva"
             />
-            <p>Canva 国际版</p>
+            <p>Canva (教育版)</p>
           </a>
 
           {/* Figma */}
@@ -286,7 +235,7 @@ export default function StudentPortal({
               src="https://cdn.worldvectorlogo.com/logos/figma-1.svg"
               alt="Figma"
             />
-            <p>Figma</p>
+            <p>Figma (教育版)</p>
           </a>
 
           {/* Beautiful.ai */}
@@ -296,11 +245,13 @@ export default function StudentPortal({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="https://assets-global.website-files.com/59deb588800ae30001ec19c9/5d9770503d7224d611a1d297_Beautiful%20AI%20Logo%20B.svg"
+            {/* 使用 SVG 或来自其网站的 logo URL */}
+            <img 
+              src="https://assets-global.website-files.com/59deb588800ae30001ec19c9/5d9770503d7224d611a1d297_Beautiful%20AI%20Logo%20B.svg" 
               alt="Beautiful.ai"
+              style={{ filter: 'invert(30%) sepia(90%) saturate(5000%) hue-rotate(200deg) brightness(90%) contrast(100%)' }} // 尝试用 CSS 滤镜上色
             />
-            <p>Beautiful.ai</p>
+            <p>Beautiful.ai (教育版)</p>
           </a>
 
           {/* iask.ai */}
@@ -310,14 +261,15 @@ export default function StudentPortal({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="https://iask.ai/logo.png"
+            {/* iask.ai logo URL 可能需要更新 */}
+            <img 
+              src="https://iask.ai/logo.png" 
               alt="iask.ai"
             />
-            <p>iask.ai</p>
+            <p>iask.ai (教育版)</p>
           </a>
 
-          {/* Add Email Aliases stays in same tab */}
+          {/* Add Email Aliases */}
           <a href="/aliases" className="grid-item">
             <svg
               width="48"
@@ -342,6 +294,9 @@ export default function StudentPortal({
             </svg>
             <p>重置密码</p>
           </a>
+          
+          {/* 可以添加一个空的 grid-item 来占位，使布局更整齐 */}
+          {/* <div className="grid-item empty" /> */}
         </div>
 
         {/* Delete My Account button */}
@@ -385,38 +340,57 @@ export default function StudentPortal({
         .info p {
           margin: 6px 0;
         }
+        
+        .section-title {
+          margin: 30px 0 15px;
+          color: #333;
+          font-size: 22px;
+          text-align: center;
+        }
+
         .grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          /* 调整列数或最小宽度以适应更多项目 */
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
           gap: 20px;
         }
         .grid-item {
           background: #fff;
           border: 1px solid #ddd;
           border-radius: 8px;
-          padding: 24px 12px;
+          padding: 20px 10px; /* 调整内边距 */
           text-align: center;
           transition: transform 0.1s, box-shadow 0.1s;
           text-decoration: none;
           color: inherit;
+          display: flex; /* 使内容垂直居中 */
+          flex-direction: column; /* 垂直排列图标和文字 */
+          align-items: center; /* 水平居中 */
+          justify-content: center; /* 垂直居中 */
+          min-height: 150px; /* 给定最小高度 */
         }
         .grid-item:hover {
           transform: translateY(-4px);
           box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .grid-item img {
+        .grid-item img, .grid-item svg { /* 应用于 img 和 svg */
           width: 48px;
           height: 48px;
-          margin-bottom: 8px;
+          margin-bottom: 12px; /* 增加图标和文字间距 */
           object-fit: contain;
+        }
+        .grid-item p {
+          margin: 0; /* 移除文字的默认 margin */
+          font-size: 14px; /* 可以调整字体大小 */
         }
         .card-icon {
           font-size: 48px;
-          margin-bottom: 8px;
+          margin-bottom: 12px; /* 增加图标和文字间距 */
         }
         .empty {
           visibility: hidden;
         }
+        
         .delete-button {
           display: block;
           margin: 30px auto 0;
@@ -443,62 +417,6 @@ export default function StudentPortal({
         }
         footer a:hover {
           text-decoration: underline;
-        }
-        
-        .section-title {
-          margin: 30px 0 15px;
-          color: #333;
-          font-size: 22px;
-          text-align: center;
-        }
-        
-        .benefits-section {
-          margin: 20px 0;
-        }
-        
-        .benefit-card {
-          background: #fff;
-          border-radius: 8px;
-          padding: 20px;
-          margin-bottom: 15px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .benefit-card h3 {
-          margin-top: 0;
-          color: #333;
-          border-bottom: 1px solid #eee;
-          padding-bottom: 10px;
-        }
-        
-        .benefit-card ul {
-          padding-left: 20px;
-        }
-        
-        .benefit-card li, .benefit-card p {
-          margin: 8px 0;
-          color: #555;
-        }
-        
-        .benefit-actions {
-          margin-top: 15px;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-        }
-        
-        .benefit-btn {
-          padding: 8px 16px;
-          background: #0070f3;
-          color: white;
-          border-radius: 4px;
-          text-decoration: none;
-          font-size: 14px;
-          transition: background 0.2s;
-        }
-        
-        .benefit-btn:hover {
-          background: #0051b3;
         }
       `}</style>
     </>
