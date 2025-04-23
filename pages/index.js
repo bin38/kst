@@ -43,7 +43,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
         
         <div className="content-wrapper">
           <div className="logo-area">
-            <img src="/logo.png" alt="KST Logo" className="logo" />
+            <img src="/img/logo.png" alt="KST Logo" className="logo" />
             <h1>吉尔吉斯坦科技大学</h1>
             <h2>Kyrgyzstan State University of Technology</h2>
           </div>
