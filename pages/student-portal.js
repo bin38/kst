@@ -232,7 +232,7 @@ export default function StudentPortal({
             rel="noopener noreferrer"
           >
             <img
-              src="https://cdn.worldvectorlogo.com/logos/figma-1.svg"
+              src="/images/figma.svg" // 指向本地图片
               alt="Figma"
             />
             <p>Figma (教育版)</p>
@@ -245,11 +245,9 @@ export default function StudentPortal({
             target="_blank"
             rel="noopener noreferrer"
           >
-            {/* 使用 SVG 或来自其网站的 logo URL */}
             <img 
-              src="https://assets-global.website-files.com/59deb588800ae30001ec19c9/5d9770503d7224d611a1d297_Beautiful%20AI%20Logo%20B.svg" 
+              src="/images/beautifulai.svg" // 指向本地图片
               alt="Beautiful.ai"
-              style={{ filter: 'invert(30%) sepia(90%) saturate(5000%) hue-rotate(200deg) brightness(90%) contrast(100%)' }} // 尝试用 CSS 滤镜上色
             />
             <p>Beautiful.ai (教育版)</p>
           </a>
@@ -261,9 +259,8 @@ export default function StudentPortal({
             target="_blank"
             rel="noopener noreferrer"
           >
-            {/* iask.ai logo URL 可能需要更新 */}
             <img 
-              src="https://iask.ai/logo.png" 
+              src="/images/iaskai.png" // 指向本地图片
               alt="iask.ai"
             />
             <p>iask.ai (教育版)</p>
