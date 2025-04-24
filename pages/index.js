@@ -40,24 +40,24 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
         <Head>
           <title>系统维护中 - KST</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-        </Head> 
+        </Head>
         <div className="container">
           <div className="overlay"></div>
-          
+
           <div className="content-wrapper">
             <div className="logo-area">
               <img src="/img/logo.png" alt="KST Logo" className="logo" />
               <h1>吉尔吉斯坦国立科技大学</h1>
               <h2>Kyrgyzstan State University of Technology</h2>
             </div>
-            
+
             <div className="card">
               <h3>系统维护中</h3>
               <div className="error-message">
                 <p>{errorMessage}</p>
               </div>
             </div>
-            
+
             <footer>
               © 2025 KST - 信息技术服务中心
             </footer>
@@ -75,7 +75,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             padding: 20px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           }
-          
+
           .overlay {
             position: absolute;
             top: 0;
@@ -85,7 +85,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             background: linear-gradient(135deg, rgba(21, 43, 100, 0.8), rgba(100, 43, 115, 0.8));
             z-index: 1;
           }
-          
+
           .content-wrapper {
             position: relative;
             z-index: 2;
@@ -95,13 +95,13 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             flex-direction: column;
             align-items: center;
           }
-          
+
           .logo-area {
             text-align: center;
             margin-bottom: 30px;
             color: #fff;
           }
-          
+
           .logo {
             width: 100px;
             height: 100px;
@@ -111,13 +111,13 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             margin-bottom: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           }
-          
+
           .logo-area h1 {
             font-size: 2.4rem;
             margin: 0 0 5px 0;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           }
-          
+
           .logo-area h2 {
             font-size: 1.2rem;
             font-weight: 400;
@@ -125,7 +125,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             opacity: 0.9;
             text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
           }
-          
+
           .card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -137,85 +137,12 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             width: 100%;
             transition: transform 0.3s ease;
           }
-          
+
           .card h3 {
             color: #152b64;
             margin-bottom: 15px;
             font-size: 1.8rem;
             font-weight: 600;
-          }
-          
-          .subtitle {
-            color: #555;
-            margin: 0 0 25px 0;
-            font-size: 1.1em;
-          }
-          
-          .quota-info {
-            background-color: rgba(240, 244, 255, 0.7);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-          }
-          
-          .quota-info p {
-            margin: 0 0 10px 0;
-            font-size: 1rem;
-            color: #333;
-          }
-          
-          .progress-bar {
-            height: 10px;
-            background-color: rgba(224, 224, 224, 0.7);
-            border-radius: 5px;
-            overflow: hidden;
-          }
-          
-          .progress-fill {
-            height: 100%;
-            background: linear-gradient(to right, #4caf50, #2196f3);
-            border-radius: 5px;
-            transition: width 0.3s ease;
-          }
-          
-          .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            padding: 14px 30px;
-            background: linear-gradient(to right, #152b64, #644b66);
-            color: #fff;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 80%;
-            max-width: 300px;
-          }
-          
-          .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-          }
-          
-          .help-text {
-            margin-top: 25px;
-            font-size: 0.9rem;
-            color: #555;
-          }
-          
-          .limit-message {
-            margin-top: 20px; /* 调整与按钮的间距 */
-            margin-bottom: 0; /* 移除底部间距，让 help-text 紧随其后 */
-            padding: 12px; /* 调整内边距 */
-            background-color: rgba(255, 243, 205, 0.8);
-            border: 1px solid #ffeeba;
-            color: #856404;
-            border-radius: 8px;
-            font-size: 0.9rem; /* 调整字体大小 */
           }
 
           .error-message {
@@ -224,7 +151,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             background-color: rgba(220, 53, 69, 0.1);
             border: 1px solid rgba(220, 53, 69, 0.3);
             color: #721c24;
-            border-radius: 8px; /* Added border-radius */
+            border-radius: 8px;
           }
 
           .error-message .logo-area h2 { /* Example: More specific selector */
@@ -332,7 +259,8 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
   return (
     <>
       <Head>
-        <title>KST - 吉尔吉斯坦国立科技大学</title>
+        {/* 更新标题为登录 */}
+        <title>KST 学生门户登录</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       </Head>
       <div className="container">
@@ -346,21 +274,39 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
           </div>
 
           <div className="card">
-            <h3>注册人数已满</h3>
-            <div className="subtitle">当前注册人数: {currentRegistrations}</div>
+            {/* 标题改为登录 */}
+            <h3>学生门户登录</h3>
+            <p className="subtitle">请使用Linux.do账号进行身份验证</p>
+
+            {/* 显示名额信息 */}
             <div className="quota-info">
-              <p>注册限制: {registrationLimit}</p>
+              <p>注册名额: <strong>{currentRegistrations}</strong> / {registrationLimit}</p>
               <div className="progress-bar">
-                <div className="progress-fill" style={{ width: `${(currentRegistrations / registrationLimit) * 100}%` }}></div>
+                <div
+                  className="progress-fill"
+                  style={{ width: `${Math.min(100, (currentRegistrations / registrationLimit) * 100)}%` }}
+                ></div>
               </div>
             </div>
-            {!isLimitReached && (
-              <a href="/register" className="button">立即注册</a>
-            )}
-          </div>
 
-          <div className="help-text">
-            {isLimitReached ? '如有疑问，请联系管理员。' : '注册人数达到上限，无法接受新的注册。'}
+            {/* 始终显示登录按钮 */}
+            <a className="button" href="/api/oauth2/initiate">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20" style={{ marginRight: '8px' }}>
+                <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2v-7a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+              </svg>
+              使用 Linux.do 登录
+            </a>
+
+            {/* 如果名额已满，在按钮下方显示提示信息 */}
+            {isLimitReached && (
+              <div className="limit-message">
+                <p>提示：当前新用户注册名额已满，但已注册用户仍可登录。</p>
+              </div>
+            )}
+
+            <div className="help-text">
+              <p>如有问题，请联系学校信息技术服务中心</p>
+            </div>
           </div>
 
           <footer>
@@ -368,6 +314,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
           </footer>
         </div>
       </div>
+
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -411,7 +358,6 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
           width: 100px;
           height: 100px;
           object-fit: contain;
-          /* 移除白色背景 */
           border-radius: 50%;
           padding: 3px;
           margin-bottom: 15px;
