@@ -59,7 +59,7 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             </div>
 
             <footer>
-              © 2025 KST - 信息技术服务中心
+              © 2025 KST - 信息技术服务中心 | 致谢@GhatGPT
             </footer>
           </div>
         </div>
