@@ -81,7 +81,9 @@ export default function StudentCard({
   // 修改为带kst前缀的学生ID
   const sid = `kst${String(studentId).padStart(6, '0')}`;
 
-  const avatarUrl = `https://i.pravatar.cc/150?u=${encodeURIComponent(studentEmail)}`
+  // 修改：使用本地默认头像图片
+  // 请确保图片文件已放置在 public/img/student-default.jpg
+  const avatarUrl = '/img/student-default.jpg';
 
   // 下载卡片处理函数
   const handleDownload = () => {
@@ -157,6 +159,7 @@ export default function StudentCard({
               {/* ... photo-column ... */}
               <div className="photo-column">
                 <div className="photo-container">
+                  {/* img 标签的 src 现在会指向本地图片 */}
                   <img src={avatarUrl} alt="Student Photo" className="student-photo" />
                 </div>
                 <div className="qr-container">
