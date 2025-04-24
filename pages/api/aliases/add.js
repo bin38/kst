@@ -15,12 +15,14 @@ export default async function handler(req, res) {
   const trust    = parseInt(cookies.oauthTrustLevel||'0',10)
   if (!username||trust<3) return res.status(403).end('Forbidden')
 
-  // 必须以 chatgpt_ 开头
+  // 必须以 kst_ 开头
   const rawDom = process.env.EMAIL_DOMAIN
   const domain = rawDom.startsWith('@') ? rawDom.slice(1) : rawDom
-  const re = new RegExp(`^chatgpt_[^@]+@${domain}$`)
+  // 更新正则表达式以匹配 kst_
+  const re = new RegExp(`^kst_[^@]+@${domain}$`)
   if (!re.test(alias)) {
-    return res.status(400).end(`Alias must match "chatgpt_<something>@${domain}"`)
+    // 更新错误消息
+    return res.status(400).end(`Alias must match "kst_<something>@${domain}"`)
   }
 
   // 获取 Google Token
