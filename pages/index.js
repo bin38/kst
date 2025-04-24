@@ -106,7 +106,6 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             width: 100px;
             height: 100px;
             object-fit: contain;
-            /* 移除白色背景 */
             border-radius: 50%;
             padding: 3px;
             margin-bottom: 15px;
@@ -225,25 +224,54 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
             background-color: rgba(220, 53, 69, 0.1);
             border: 1px solid rgba(220, 53, 69, 0.3);
             color: #721c24;
-            
+            border-radius: 8px; /* Added border-radius */
+          }
+
+          .error-message .logo-area h2 { /* Example: More specific selector */
+            font-size: 1rem;
+          }
+
+          .error-message .logo { /* Example: More specific selector */
+            width: 80px;
+            height: 80px;
+          }
+
+          .error-message + footer { /* Adjust footer margin if needed */
+             margin-top: 20px;
+          }
+
+          footer {
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+          }
+
+          /* 移动端响应式优化 */
+          @media (max-width: 768px) {
+            .logo-area h1 {
+              font-size: 2rem;
+            }
+
             .logo-area h2 {
               font-size: 1rem;
             }
-            
+
             .logo {
               width: 80px;
               height: 80px;
             }
-            
+
             .card {
               padding: 25px 20px;
             }
-            
+
             .card h3 {
               font-size: 1.6rem;
             }
           }
-          
+
           @media (max-width: 480px) {
             .container {
               padding: 15px;
@@ -299,4 +327,287 @@ export default function Home({ registrationLimit, currentRegistrations, limitRea
       </>
     )
   }
+
+  // 正常显示
+  return (
+    <>
+      <Head>
+        <title>KST - 吉尔吉斯坦国立科技大学</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+      </Head>
+      <div className="container">
+        <div className="overlay"></div>
+
+        <div className="content-wrapper">
+          <div className="logo-area">
+            <img src="/img/logo.png" alt="KST Logo" className="logo" />
+            <h1>吉尔吉斯坦国立科技大学</h1>
+            <h2>Kyrgyzstan State University of Technology</h2>
+          </div>
+
+          <div className="card">
+            <h3>注册人数已满</h3>
+            <div className="subtitle">当前注册人数: {currentRegistrations}</div>
+            <div className="quota-info">
+              <p>注册限制: {registrationLimit}</p>
+              <div className="progress-bar">
+                <div className="progress-fill" style={{ width: `${(currentRegistrations / registrationLimit) * 100}%` }}></div>
+              </div>
+            </div>
+            {!isLimitReached && (
+              <a href="/register" className="button">立即注册</a>
+            )}
+          </div>
+
+          <div className="help-text">
+            {isLimitReached ? '如有疑问，请联系管理员。' : '注册人数达到上限，无法接受新的注册。'}
+          </div>
+
+          <footer>
+            © 2025 KST - 信息技术服务中心
+          </footer>
+        </div>
+      </div>
+      <style jsx>{`
+        .container {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          background: url('/img/hero-bg.jpg') center/cover no-repeat fixed;
+          padding: 20px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(21, 43, 100, 0.8), rgba(100, 43, 115, 0.8));
+          z-index: 1;
+        }
+
+        .content-wrapper {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          max-width: 1200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .logo-area {
+          text-align: center;
+          margin-bottom: 30px;
+          color: #fff;
+        }
+
+        .logo {
+          width: 100px;
+          height: 100px;
+          object-fit: contain;
+          /* 移除白色背景 */
+          border-radius: 50%;
+          padding: 3px;
+          margin-bottom: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-area h1 {
+          font-size: 2.4rem;
+          margin: 0 0 5px 0;
+          text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-area h2 {
+          font-size: 1.2rem;
+          font-weight: 400;
+          margin: 0;
+          opacity: 0.9;
+          text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .card {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          padding: 35px 30px;
+          border-radius: 15px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+          text-align: center;
+          max-width: 450px;
+          width: 100%;
+          transition: transform 0.3s ease;
+        }
+
+        .card h3 {
+          color: #152b64;
+          margin-bottom: 15px;
+          font-size: 1.8rem;
+          font-weight: 600;
+        }
+
+        .subtitle {
+          color: #555;
+          margin: 0 0 25px 0;
+          font-size: 1.1em;
+        }
+
+        .quota-info {
+          background-color: rgba(240, 244, 255, 0.7);
+          padding: 15px;
+          border-radius: 10px;
+          margin-bottom: 25px;
+        }
+
+        .quota-info p {
+          margin: 0 0 10px 0;
+          font-size: 1rem;
+          color: #333;
+        }
+
+        .progress-bar {
+          height: 10px;
+          background-color: rgba(224, 224, 224, 0.7);
+          border-radius: 5px;
+          overflow: hidden;
+        }
+
+        .progress-fill {
+          height: 100%;
+          background: linear-gradient(to right, #4caf50, #2196f3);
+          border-radius: 5px;
+          transition: width 0.3s ease;
+        }
+
+        .button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          padding: 14px 30px;
+          background: linear-gradient(to right, #152b64, #644b66);
+          color: #fff;
+          border-radius: 8px;
+          text-decoration: none;
+          font-size: 1.1rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          width: 80%;
+          max-width: 300px;
+        }
+
+        .button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .help-text {
+          margin-top: 25px;
+          font-size: 0.9rem;
+          color: #555;
+        }
+
+        .limit-message {
+          margin-top: 20px; /* 调整与按钮的间距 */
+          margin-bottom: 0; /* 移除底部间距，让 help-text 紧随其后 */
+          padding: 12px; /* 调整内边距 */
+          background-color: rgba(255, 243, 205, 0.8);
+          border: 1px solid #ffeeba;
+          color: #856404;
+          border-radius: 8px;
+          font-size: 0.9rem; /* 调整字体大小 */
+        }
+
+        footer {
+          margin-top: 40px;
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 0.9rem;
+          text-align: center;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 移动端响应式优化 */
+        @media (max-width: 768px) {
+          .logo-area h1 {
+            font-size: 2rem;
+          }
+
+          .logo-area h2 {
+            font-size: 1rem;
+          }
+
+          .logo {
+            width: 80px;
+            height: 80px;
+          }
+
+          .card {
+            padding: 25px 20px;
+          }
+
+          .card h3 {
+            font-size: 1.6rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .container {
+            padding: 15px;
+          }
+          
+          .logo-area h1 {
+            font-size: 1.6rem;
+          }
+          
+          .logo-area h2 {
+            font-size: 0.9rem;
+          }
+          
+          .logo {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+          }
+          
+          .card {
+            padding: 20px 15px;
+            border-radius: 12px;
+          }
+          
+          .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+          }
+          
+          .subtitle {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+          }
+          
+          .quota-info {
+            padding: 10px;
+            margin-bottom: 20px;
+          }
+          
+          .button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            width: 100%;
+          }
+          
+          footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            padding: 0 10px;
+          }
+        }
+      `}</style>
+    </>
+  )
 }
