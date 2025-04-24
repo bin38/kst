@@ -83,7 +83,7 @@ export default function StudentCard({
 
   // 修改：使用本地默认头像图片
   // 请确保图片文件已放置在 public/img/student-default.jpg
-  const avatarUrl = '/img/student-default.jpg';
+  const avatarUrl = '/img/studen.jpg';
 
   // 下载卡片处理函数
   const handleDownload = () => {
