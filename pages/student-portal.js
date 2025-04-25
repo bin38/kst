@@ -91,6 +91,7 @@ export default function StudentPortal({
   const notionLink = 'https://www.notion.so/'
   const figmaLink = 'https://www.figma.com/education'
   const beautifulaiLink = 'https://www.beautiful.ai/education'
+  const htbLink = 'https://www.hackthebox.com' // 添加 HackTheBox 链接
   const aliasesLink = '/aliases' // 添加别名管理页面链接
 
   // Delete handler
@@ -241,7 +242,7 @@ export default function StudentPortal({
             rel="noopener noreferrer"
           >
             <img
-              src="/img/figma.png" // 修正：使用正斜杠
+              src="/img/figma.png"
               alt="Figma"
             />
             <p>Figma (教育版)</p>
@@ -255,14 +256,27 @@ export default function StudentPortal({
             rel="noopener noreferrer"
           >
             <img
-              src="/img/beautiful.ai.png" // 修正：使用正斜杠
+              src="/img/beautiful.ai.png"
               alt="Beautiful.ai"
             />
             <p>Beautiful.ai (教育版)</p>
           </a>
+          
+          {/* HackTheBox - 添加新福利 */}
+          <a
+            href={htbLink}
+            className="grid-item"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/img/htb.png"
+              alt="HackTheBox"
+            />
+            <p>HackTheBox (教育版)</p>
+          </a>
 
           {/* Add Email Aliases */}
-          {/* 更新 SVG 图标并确保文本为中文 */}
           <a href="/aliases" className="grid-item">
             <svg
               width="48"
